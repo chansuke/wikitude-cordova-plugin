@@ -101,7 +101,7 @@
 		// We add an event listener on the resume and pause event of the application life-cycle
 		document.addEventListener("resume", this.onResume, false);
 		document.addEventListener("pause", this.onPause, false);
-		document.addEventListener("backbutton", this.onBackButton, false);
+		document.addEventListener("backbutton", this.onBackButton, true);
 	};
 
 	/* Managing the Wikitude SDK Lifecycle */
@@ -112,7 +112,7 @@
 
 		document.removeEventListener("pause", this.onPause, false);
 		document.removeEventListener("resume", this.onResume, false);
-		document.removeEventListener("backbutton", this.onBackButton, false);
+		document.removeEventListener("backbutton", this.onBackButton, true);
 
 		cordova.exec(this.onWikitudeOK, this.onWikitudeError, "WikitudePlugin", "close", [""]);
 	};
